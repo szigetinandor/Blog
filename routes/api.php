@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+Route::get('posts', 'RestController@all')->name('posts');
+Route::get('posts/{id}', 'RestController@getOne')->name('onePost');
+Route::put('posts', 'RestController@add')->name('addPost');
+Route::put('posts/{id}', 'RestController@update')->name('updatePost');
+Route::delete('posts/{id}', 'RestController@delete')->name('deletePost');
+

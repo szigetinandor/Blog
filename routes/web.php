@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('posts');
 });
+
+Route::get('/posts/all', 'BlogController@posts')->name('posts');
+Route::get('/posts/add', 'BlogController@addPost')->name('addPostPage');
+
+
+
+
