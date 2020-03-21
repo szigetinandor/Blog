@@ -19,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('posts') }}">Bejegyzések <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('posts') }}">Posts <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('addPostPage') }}">Add</a>
+                <a class="nav-link" href="{{ route('addPostPage') }}">Add post</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="container">
+<div class="container mt-4">
     @yield('content')
 </div>
 

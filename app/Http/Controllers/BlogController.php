@@ -13,7 +13,26 @@ class BlogController extends Controller
         return view('posts', ['posts' => $posts]);
     }
 
-    public function addPost() {
-        return view('addPost');
+    public function addPostPage() {
+        return view('postForm', ['action' => route('addPost')]);
+    }
+
+    public function addPost(Request $request) {
+        Post::create($request->all());
+        return redirect()->route('posts');
+    }
+
+    public function updatePostPage($id) {
+        $post = Post::find($id);
+        return view('postForm', ['action' => route('updatePost', $id), 'post' => $post]);
+    }
+
+    public function updatePost($id, Request $request) {
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->post = $request->post;
+        $post->author = $request->author;
+        $post->save();
+        return redirect()->route('posts');
     }
 }

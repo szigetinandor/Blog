@@ -18,8 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/all', 'BlogController@posts')->name('posts');
-Route::get('/posts/add', 'BlogController@addPost')->name('addPostPage');
+Route::get('/posts/add', 'BlogController@addPostPage')->name('addPostPage');
+Route::get('/posts/update/{id}', 'BlogController@updatePostPage')->name('updatePostPage');
 
+Route::post('/posts/add', 'BlogController@addPost')->name('addPost');
+Route::post('/posts/update/{id}', 'BlogController@updatePost')->name('updatePost');
 
 
 

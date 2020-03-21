@@ -2,9 +2,13 @@
 
 @section('content')
     <div id="posts">
+         @foreach($posts as $post)
+            @include('post', ['post' => $post])
+         @endforeach
     </div>
 @endsection
 
+{{--
 @section('js')
     <script>
         $(document).ready(function() {
@@ -20,7 +24,8 @@
         }
 
         function createPost(post) {
-            return `<h1>${post.title}</h1><p>${post.post}</p><p>${post.author}</p>`;
+            return `@include('post', ['post' => ])`;
         }
     </script>
 @endsection
+--}}
